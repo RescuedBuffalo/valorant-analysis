@@ -16,7 +16,7 @@ Build a Python function that reads the Riot Client lockfile from the user's loca
 
 ### Requirements:
 
-- Read lockfile at default path on Windows
+- Read lockfile usually at `C:\\Riot Games\\Riot Client\\Config\\lockfile`
 - Return port, password, and protocol
 - Construct `Authorization` header for use in requests
 
