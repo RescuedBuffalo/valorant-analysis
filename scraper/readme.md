@@ -81,3 +81,26 @@ This document outlines the Valorant internal API endpoints we will use in our sc
 
 This readme is the source of truth for our scraper integration. Keep it updated as API methods evolve or expand.
 
+## 📊 VLR.gg Pro Match Scraper
+
+The `vlr_scraper.py` script collects public statistics from [VLR.gg](https://www.vlr.gg) match pages. It is aimed at gathering
+professional match data for modeling and analysis.
+
+### Capabilities
+- Retrieve match listings for a given event.
+- Parse per-map score, team compositions, and detailed player statistics (ACS, K/D/A, KAST, ADR, HS%, FK, FD, etc.).
+- Extract round-by-round results for each map.
+- Capture performance metrics such as multi-kills, operator kills, and player-vs-player kill counts.
+- Output data as structured JSON for downstream analysis.
+
+### Usage
+
+```bash
+python scraper/vlr_scraper.py <match-url> -o match.json
+```
+
+Replace `<match-url>` with the full URL of a match page on VLR.gg. The script prints the scraped data to stdout or stores it in
+`match.json` when the `-o/--out` option is provided.
+
+> **Note:** VLR.gg may throttle or block automated requests. Consider including delays between requests and caching results.
+
